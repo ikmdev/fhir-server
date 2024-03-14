@@ -3,6 +3,10 @@
 Builds a simple FHIR Server with the komet logo.  It may include other 
 customizations as well.
 
+## Prerequisites
+
+For just about anything here, you need to [install docker](installing-docker.md).
+
 ## Building the Server
 
 To build this FHIR server, execute the following from the top level:
