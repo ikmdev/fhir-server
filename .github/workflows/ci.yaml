@@ -42,9 +42,10 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Build and push Docker images
+        if: github.event_name != 'pull_request' && github.repository == 'ikmdev/fhir-server' && github.branch == 'main'
         uses: docker/build-push-action@v5.3.0
         with:
           context: .
-          push: ${{ github.event_name != 'pull_request' }} # push only if not the pull request branch
-          tags: ${{ steps.meta.outputs.tags }} # tags from the extractor
+          push: true
+          tags: 'ikmdev/fhir-server:latest'
           labels: ${{ steps.meta.outputs.labels }} # labels from the extractor
