@@ -12,6 +12,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
+  ORG_NAME: ${{ github.organization }}
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
@@ -35,10 +36,16 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5.5.1
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.ORG_NAME }}/${{ env.IMAGE_NAME }}
+
       - name: Build and push Docker images
         uses: docker/build-push-action@v5.3.0
         with:
           context: .
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          push: ${{ github.event_name != 'pull_request' }} # push only if not the pull request branch
+          tags: ${{ steps.meta.outputs.tags }} # tags from the extractor
+          labels: ${{ steps.meta.outputs.labels }} # labels from the extractor
