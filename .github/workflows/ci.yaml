@@ -47,5 +47,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: 'ikmdev/fhir-server:latest'
+          tags: ${{ steps.meta.outputs.tags }} # tags from the extractor, plus latest
           labels: ${{ steps.meta.outputs.labels }} # labels from the extractor
