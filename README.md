@@ -28,7 +28,7 @@ docker run -it --rm -p 8080:8080 ghcr.io/ikmdev/fhir-server:1.0.0
 ## Testing
 
 Execute a test, adjust the payload to upload one or more Resources to FHIR,
-The resource types can be found here: http://localhost:8080/fhir/swagger-ui
+The resource types can be found here: http://localhost:8080/fhir/swagger-ui/
 
 Using the saved files called `organization.json` and `'patient.json`, you can test the upload with a command similar 
 to the following:
