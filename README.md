@@ -12,7 +12,7 @@ For just about anything here, you need to [install docker](installing-docker.md)
 To build this FHIR server, execute the following from the top level:
 
 ```bash
-docker build . -t ghcr.io/ikmdev/komet-fhir:latest
+docker build . -t ghcr.io/ikmdev/fhir-server:latest
 ```
 
 ## Running a HAPI FHIR Server
@@ -22,7 +22,7 @@ as this should be published to github artifacts - adjust the version
 as is needed):
 
 ```bash
-docker run -it --rm -p 8080:8080 ghcr.io/ikmdev/komet-fhir:1.0.0
+docker run -it --rm -p 8080:8080 ghcr.io/ikmdev/fhir-server:1.0.0
 ```
 
 ## Testing
