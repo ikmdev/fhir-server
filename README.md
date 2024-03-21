@@ -9,7 +9,7 @@ For just about anything here, you need to [install docker](installing-docker.md)
 
 ## Building the Server
 
-To build this FHIR server, execute the following from the top level:
+If you want to modify or build this code, to build this FHIR server, execute the following from the top level:
 
 ```bash
 docker build . -t ghcr.io/ikmdev/fhir-server:latest
@@ -24,6 +24,10 @@ as is needed):
 ```bash
 docker run -it --rm -p 8080:8080 ghcr.io/ikmdev/fhir-server:1.0.0
 ```
+
+## Viewing Resources
+
+To view FHIR Resources, go to http://localhost:8080/
 
 ## Testing
 
