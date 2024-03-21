@@ -29,7 +29,7 @@ If you have any older versions of Docker installed, it's recommended to uninstal
     automatically. You should see the Docker whale icon in the system tray (lower-right corner of your screen). 
     Docker Desktop is now running.
 
-## Install via Docker Engine and Docker CLI
+## Option 2: Install via Docker Engine and Docker CLI
 
 If you want to avoid dealing with the licensing of running Docker with Docker Desktop, you can also run it via just command line.
 This is done slightly differently for each platform.
