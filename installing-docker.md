@@ -10,10 +10,11 @@ give you the tools to use it on the other platforms as well.
 ## Check System Requirements:
 
 Before installing Docker on Windows, ensure that your system meets the following requirements:
-* Ensure that Hyper-V are features enabled in your BIOS
-* One of the following operating systems:
-    * Windows 10 64-bit: Pro, Enterprise, or Education (Build 15063 or later) .
-* Virtualization must be enabled in BIOS settings.
+* Ensure that Hyper-V are features enabled in your BIOS (if applicable)
+* It is suggested you use one of the tested operating systems:
+    * Windows 10 64-bit: Pro, Enterprise, or Education (Build 15063 or later).
+    * MacOS 14+
+    * Ubuntu Linux
 
 ## Uninstall Previous versions of Docker
 
