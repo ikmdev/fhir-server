@@ -7,14 +7,6 @@ customizations as well.
 
 For just about anything here, you need to [install docker](installing-docker.md).
 
-## Building the Server
-
-If you want to modify or build this code, to build this FHIR server, execute the following from the top level:
-
-```bash
-docker build . -t ghcr.io/ikmdev/fhir-server:latest
-```
-
 ## Running a HAPI FHIR Server
 
 To run this server, run the following (does not require building, 
