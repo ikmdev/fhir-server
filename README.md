@@ -49,3 +49,5 @@ curl -X 'GET' \
 'http://localhost:8080/fhir/Organization' \
 -H 'accept: application/fhir+json'
 ```
+
+Also, we love it when you [Contribute][CONTRIBUTING.md]!
