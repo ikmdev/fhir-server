@@ -50,4 +50,4 @@ curl -X 'GET' \
 -H 'accept: application/fhir+json'
 ```
 
-Also, we love it when you [Contribute][CONTRIBUTING.md]!
+Also, we love it when you [Contribute](Contributing.md)!
