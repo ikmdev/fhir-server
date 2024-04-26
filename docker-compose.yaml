@@ -1,0 +1,25 @@
+services:
+  fhir:
+    build: .
+    ports:
+      - "8080:8080"
+    configs:
+      - source: hapi
+        target: /app/config/application.yaml
+    depends_on:
+      - db
+
+  db:
+    image: "postgres:latest"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "fhir-admin"
+      POSTGRES_USER: "postgres"
+      POSTGRES_DB: "hapi"
+    volumes:
+      - ./hapi.postgress.data:/var/lib/postgresql/data
+
+configs:
+  hapi:
+    file: ./overrides.yaml

@@ -9,6 +9,8 @@ COPY komet_logo.jpg /app/img/sample-logo.jpg
 RUN jar -uf /app/main.war img/sample-logo.jpg
 RUN rm -rf /app/img
 
+COPY overrides.yaml /app
+
 FROM gcr.io/distroless/java17-debian11:nonroot AS default
 COPY --chown=nonroot:nonroot --from=build-hapi /app /app
 # 65532 is the nonroot user's uid
@@ -17,4 +19,10 @@ COPY --chown=nonroot:nonroot --from=build-hapi /app /app
 USER 65532:65532
 WORKDIR /app
 
-ENTRYPOINT ["java", "--class-path", "/app/main.war", "-Dloader.path=main.war!/WEB-INF/classes/,main.war!/WEB-INF/,/app/extra-classes", "org.springframework.boot.loader.PropertiesLauncher"]
+ENTRYPOINT [ \
+    "java", \
+    "--class-path", \
+    "/app/main.war", \
+    "-Dloader.path=main.war!/WEB-INF/classes/,main.war!/WEB-INF/,/app/extra-classes", \
+    "org.springframework.boot.loader.PropertiesLauncher" \
+]

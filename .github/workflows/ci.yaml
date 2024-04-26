@@ -49,3 +49,17 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }} # push only if not the pull request branch
           tags: ${{ steps.meta.outputs.tags }} # tags from the extractor, plus latest
           labels: ${{ steps.meta.outputs.labels }} # labels from the extractor
+
+      - name: Build the Docker image for new Mac Silicon
+        if: github.ref_type == 'tag'
+        uses: docker/build-push-action@v5.3.0
+        with:
+          context: "{{defaultContext}}:docker"
+          platforms: linux/arm64/v8,linux/arm/v8
+          file: ./Dockerfile-dev
+          build-args: |
+            BRANCH=${{ steps.branch-name.outputs.current_branch }}
+            BUILDX_QEMU_ENV=true
+          push: true
+          tags: |
+            hemna6969/aprsd:${{ steps.branch-name.outputs.current_branch }}

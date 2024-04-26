@@ -14,7 +14,7 @@ as this should be published to github artifacts - adjust the version
 as is needed):
 
 ```bash
-docker run -it --rm -p 8080:8080 ghcr.io/ikmdev/fhir-server:1.0.0
+docker-compose up
 ```
 
 ## Viewing Resources
